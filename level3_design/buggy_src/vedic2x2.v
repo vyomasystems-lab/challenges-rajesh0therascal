@@ -1,8 +1,8 @@
 module vedic2x2(input [1:0] a,b, output [3:0] prod);
 
-	wire a1b1 = a[1] & b[1];
-	wire a0b1 = a[0] & b[1];
-	wire a1b0 = a[1] & b[0];
+	wire a1b1 = a[1] | b[1];
+	wire a0b1 = a[1] & b[0];
+	wire a1b0 = a[0] & b[1];
 	wire a0b0 = a[0] & b[0];
 	wire carry;
 	
