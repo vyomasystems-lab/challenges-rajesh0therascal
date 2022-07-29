@@ -2,51 +2,97 @@
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
-![GitpodID](https://user-images.githubusercontent.com/7369180/181241200-b68e593d-70e4-4141-b54d-9e223f1cda1b.png)
+![Alt text]( ../assets/GitpodID.png "Gitpod ID")
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (adder module here) which takes in 4-bit inputs *a* and *b* and gives 5-bit output *sum*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test Multiplexer which takes in 5-bit select input *sel* and channel inputs *inp0 : inp 30* gives 2-bit output *out*
 
 The values are assigned to the input port using 
 ```
-dut.a.value = 7
-dut.b.value = 5
+        dut.inp0.value = inputValue
+        dut.sel.value = 0
 ```
+for the test case *test_mux_inp0*
 
-The assert statement is used for comparing the adder's outut to the expected value.
+The assert statement is used for comparing the multiplexers's outut to the expected value.
 
 The following error is seen:
 ```
-assert dut.sum.value == A+B, "Adder result is incorrect: {A} + {B} != {SUM}, expected value={EXP}".format(
-                     AssertionError: Adder result is incorrect: 7 + 5 != 2, expected value=12
-```
-## Test Scenario **(Important)**
-- Test Inputs: a=7 b=5
-- Expected Output: sum=12
-- Observed Output in the DUT dut.sum=2
+assert dut.out.value == inputValue, "Test failed with: {input} {sel} = {output}".format(input=inputValue, sel=dut.sel.value, output = dut.out.value)
 
-Output mismatches for the above inputs proving that there is a design bug
+```
+## Test Scenarios **(Important)**
+A total of 31 test cases are build.
+
+Each test cases simulates all possible inputs for a particular select channel i.e. 00,01,10 and 11
 
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
 
+![Alt text](../assets/Level1Design1AllTests.png)
+
+in lines 40 and 41, 2 case condtions are same. For *inp12* instead of *5'b01100*,  *5'b01101* is used. Because of this *inp13* is disconnected. 
+
 ```
- always @(a or b) 
-  begin
-    sum = a - b;             ====> BUG
-  end
+      5'b01101: out = inp12;
+      5'b01101: out = inp13;
 ```
-For the adder design, the logic should be ``a + b`` instead of ``a - b`` as in the design code.
+
+Following test cases expose bugs for *inp12* and *inp13*
+
+ ![Alt text](../assets/Level1Design1_1213.png)
+
+Also, case condition for *inp30* is not included in src.
 
 ## Design Fix
-Updating the design and re-running the test makes the test pass.
+Updating the design in case statement is
 
-![](https://i.imgur.com/5XbL1ZH.png)
+```
+  begin
+    case(sel)
+      5'b00000: out = inp0;  
+      5'b00001: out = inp1;  
+      5'b00010: out = inp2;  
+      5'b00011: out = inp3;  
+      5'b00100: out = inp4;  
+      5'b00101: out = inp5;  
+      5'b00110: out = inp6;  
+      5'b00111: out = inp7;  
+      5'b01000: out = inp8;  
+      5'b01001: out = inp9;  
+      5'b01010: out = inp10;
+      5'b01011: out = inp11;
+      5'b01100: out = inp12; #change 5'b01101 to 5'b01100
+      5'b01101: out = inp13;
+      5'b01110: out = inp14;
+      5'b01111: out = inp15;
+      5'b10000: out = inp16;
+      5'b10001: out = inp17;
+      5'b10010: out = inp18;
+      5'b10011: out = inp19;
+      5'b10100: out = inp20;
+      5'b10101: out = inp21;
+      5'b10110: out = inp22;
+      5'b10111: out = inp23;
+      5'b11000: out = inp24;
+      5'b11001: out = inp25;
+      5'b11010: out = inp26;
+      5'b11011: out = inp27;
+      5'b11100: out = inp28;
+      5'b11101: out = inp29;
+      5'b11110: out = inp30;  # Add this line
+      default: out = 0;
+    endcase
+  end
 
-The updated design is checked in as adder_fix.v
+```
 
 ## Verification Strategy
 
+To exercise all *sel* inputs and drive all possible inputs on selected inputs.
+
 ## Is the verification complete ?
+
+Yes, it is complete as far as bugs are concerned. But all possible input conditions are not exercised
 
