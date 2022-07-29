@@ -25,15 +25,15 @@ Here, inputs are integer.
 
 Design consists of following modules arranged in structural heirarchy
 
-- Half Adder
-- Full Adder
-- 4 bit ripple adder
-- 8 bit ripple adder
-- 6 bit ripple adder
-- 12 bit ripple adder
-- 2x2 vedic multiplier
-- 4x4 vedic multiplier
-- 8x8 vedic multiplier
+- Half Adder *half_adder.v*
+- Full Adder *full_adder.v*
+- 4 bit ripple adder *ripple_adder_4bit.v*
+- 8 bit ripple adder *ripple_adder_8bit.v*
+- 6 bit ripple adder *ripple_adder_6bit.v*
+- 12 bit ripple adder *ripple_adder_12bit.v*
+- 2x2 vedic multiplier *vedic2x2.v*
+- 4x4 vedic multiplier *vedic4x4.v*
+- 8x8 vedic multiplier *vedic8x8.v*
 
 The structural heirarchy is shown below
 
@@ -53,92 +53,107 @@ Test scenarios are constructed using top down methodology. Following test cases 
 
 Following test cases are run heirarchially to identify bug.
 
+Test Case 1 and 2 are basic tests to check for failure.
+
+Test Cases 3, 4 and 5 exercise randomised inputs for exposing errors in modules present in next level viz. Ripple adder 8 bit, Ripple adder 12 bit and Vedic Mult 4x4.
+
+Test Cases 6 exercise randomised inputs for exposing errors in modules in Vedic Mult2x2.
+
+Test Cases 7 exercise randomised inputs for pinpointing errors in Vedic Mult2x2.
+
 
 ## Design Bug
 
 ### Test Case 1
 
-Based on the above test input and analysing the design, we see the following
+Basic test to check multiplication operation.
 
-- Output is generated in same cycle when input goes high for last bit in sequence
-
-![Alt text](../assets/SameCycleOutput.png)
-
-Reason: output *seq_seen* is not synchronous with clock *clk*
+Status : *Failed*
 
 ### Test Case 2
 
-Expose all sequences that are failing using all possible inputs
+Randomised tests to check multiplication operation
 
-![Alt text](../assets/Level1Design2BruteForce.png)
+Status : *Failed*
 
 
 ### Test Case 3
 
-It is evident from above sequence that, valid sequences preceded by odd number of *1's* are causing error. This due to the bug in *SEQ_1* state
+Randomised tests to check functionality of 8 bit ripple adder.
 
-![Alt text](../assets/Level1Design2SEQ1Error.png)
+Status : *Passed*
+
+
+### Test Case 4
+
+Randomised tests to check functionality of 12 bit ripple adder.
+
+Status : *Passed*
+
+
+### Test Case 5
+
+Randomised tests to check functionality of 4x4 vedic multiplier.
+
+Status : *Failed*
+
+
+### Test Case 6
+
+Randomised tests to check functionality of 4x4 vedic multiplier.
+
+Status : *Failed*
+
+### Test Case 7
+
+Randomised tests to check functionality of 2x2 vedic multiplier.
+
+Status : *Failed*
 
 #### Buggy code 1
 
 ```
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = IDLE;  // Bug is here
-        else
-          next_state = SEQ_10;
-      end
+	wire a1b1 = a[1] | b[1];
+	wire a0b1 = a[1] & b[0];
+	wire a1b0 = a[0] & b[1];
 ```
 
-Similarly Test case 4 exposes bug in the state *SEQ_101*
-
-Valid sequences preceded by *10* will fail due to the following bug
-
-#### Buggy code 2
-
-```
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = IDLE; // Bug is here
-      end
-```
 
 ## Design Fix
-Updating the design in case statement as follows will clear the code
+
 
 #### Corrected code 1
 
 ```
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1;  // Bug is here
-        else
-          next_state = SEQ_10;
-      end
+	wire a1b1 = a[1] & b[1];
+	wire a0b1 = a[0] & b[1];
+	wire a1b0 = a[1] & b[0];
 ```
 
-#### Corrected code 2
-
-```
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = SEQ_10; // Bug is here
-      end
-```
 
 ## Verification Strategy
 
-To exercise all possible conditions using brute force and identify sequences causing errors. Then expose bugs using directed test cases.
+Test scenarios are constructed using top down methodology.
+
+Design is divided into levels. 
+
+- Level 1: 8x8 Vedic Multiplier
+- Level 2: 4x4 Vedic Multiplier , 8 bit Ripple Adder, 12 bit Ripple adder
+- Level 3: 2x2 Vedic Multiplier , 4 bit Ripple Adder, 6 bit Ripple adder
+- Level 4: Half Adder, Full Adder
+
+Test cases 1 and 2 confirm that an error is present in the design.
+
+Test cases 3, 4, 5 are directed on modules in Level 2. Since 3 and 4 test cases are passed. It elimnates possibility of errors in depenedency modules viz. 4 bit Ripple adder, 6 bit Ripple adder, Full Adder and Half adder. Further test cases are not written to expose bugs in these modules as their functionality is safisfactory.
+
+Test case 5 failure is attributed to 4x4 Vedic Multiplier. Since it is dependent on 2x2 Vedic Multiplier, Test case 6 directed on it for confirmation.
+
+Test 7 is written to pin point the bug.
+
+![Alt text](../assets/Level3PinpointTest.png)
+
 
 ## Is the verification complete ?
 
-Yes, it is complete as far as bugs are concerned. But possible input conditions are limited to 8 bit.
+Yes, it is complete as far as bugs are concerned. But possible input conditions are randomized and are only subset of all possible inputs.
 
