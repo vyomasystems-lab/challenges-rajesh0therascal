@@ -62,7 +62,7 @@ async def test_seq_all_bruteforce(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk) 
 
-    for inputs in range(8,128):
+    for inputs in range(8,127):
         dut.reset.value = 1
         await FallingEdge(dut.clk)
         await FallingEdge(dut.clk)

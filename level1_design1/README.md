@@ -1,12 +1,14 @@
-# Adder Design Verification
+# Multiplexer Design Verification
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
+
+Gitpod ID is in the below image
 
 ![Alt text]( ../assets/GitpodID.png "Gitpod ID")
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test Multiplexer which takes in 5-bit select input *sel* and channel inputs *inp0 : inp 30* gives 2-bit output *out*
+ The test drives inputs to the Design Under Test Multiplexer which takes in 5-bit select input *sel* and channel inputs *inp0 : inp 30* gives 2-bit output *out*
 
 The values are assigned to the input port using 
 ```
@@ -23,12 +25,14 @@ assert dut.out.value == inputValue, "Test failed with: {input} {sel} = {output}"
 
 ```
 ## Test Scenarios **(Important)**
+
 A total of 31 test cases are build.
 
 Each test cases simulates all possible inputs for a particular select channel i.e. 00,01,10 and 11
 
 ## Design Bug
-Based on the above test input and analysing the design, we see the following
+
+Based on the above test inputs and analysing the design, we see the following
 
 ![Alt text](../assets/Level1Design1AllTests.png)
 
