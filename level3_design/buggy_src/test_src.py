@@ -5,7 +5,7 @@ import random
 
 @cocotb.test()
 async def vedicMult_basic_test(dut):
-    """Test for 5 + 10"""
+    """Test for 5 * 10"""
 
     A = 5
     B = 10
