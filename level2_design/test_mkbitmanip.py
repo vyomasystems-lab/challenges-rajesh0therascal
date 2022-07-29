@@ -65,7 +65,7 @@ def run_test(dut):
 @cocotb.test()
 def run_test_ANDN(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for ANDN Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -121,7 +121,7 @@ def run_test_ANDN(dut):
 @cocotb.test()
 def run_test_ORN(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for ORN Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -177,7 +177,7 @@ def run_test_ORN(dut):
 @cocotb.test()
 def run_test_XNOR(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for XNOR Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -233,7 +233,7 @@ def run_test_XNOR(dut):
 @cocotb.test()
 def run_test_SLO(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SLO Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -289,7 +289,7 @@ def run_test_SLO(dut):
 @cocotb.test()
 def run_test_SRO(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SRO Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -345,7 +345,7 @@ def run_test_SRO(dut):
 @cocotb.test()
 def run_test_ROL(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for ROL Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -400,7 +400,7 @@ def run_test_ROL(dut):
 @cocotb.test()
 def run_test_ROR(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for ROR Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -456,7 +456,7 @@ def run_test_ROR(dut):
 @cocotb.test()
 def run_test_SH1ADD(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SH1ADD Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -512,7 +512,7 @@ def run_test_SH1ADD(dut):
 @cocotb.test()
 def run_test_SH2ADD(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SH2ADD Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -568,7 +568,7 @@ def run_test_SH2ADD(dut):
 @cocotb.test()
 def run_test_SH3ADD(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SH3ADD Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -624,7 +624,7 @@ def run_test_SH3ADD(dut):
 @cocotb.test()
 def run_test_SBCLR(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBCLR Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -680,7 +680,7 @@ def run_test_SBCLR(dut):
 @cocotb.test()
 def run_test_SBSET(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBSET Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -736,7 +736,7 @@ def run_test_SBSET(dut):
 @cocotb.test()
 def run_test_SBINV(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBINV Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -792,7 +792,7 @@ def run_test_SBINV(dut):
 @cocotb.test()
 def run_test_SBEXT(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBEXT Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -848,7 +848,7 @@ def run_test_SBEXT(dut):
 @cocotb.test()
 def run_test_GORC(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for GORC Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -904,7 +904,7 @@ def run_test_GORC(dut):
 @cocotb.test()
 def run_test_GREV(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for GREV Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -960,7 +960,7 @@ def run_test_GREV(dut):
 @cocotb.test()
 def run_test_CMIX(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CMIX Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1016,7 +1016,7 @@ def run_test_CMIX(dut):
 @cocotb.test()
 def run_test_CMOV(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CMOV Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1072,7 +1072,7 @@ def run_test_CMOV(dut):
 @cocotb.test()
 def run_test_FSL(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for FSL Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1127,7 +1127,7 @@ def run_test_FSL(dut):
 @cocotb.test()
 def run_test_FSR(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for FSR Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1184,7 +1184,7 @@ def run_test_FSR(dut):
 @cocotb.test()
 def run_test_CLZ(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CLZ Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1245,7 +1245,7 @@ def run_test_CLZ(dut):
 @cocotb.test()
 def run_test_CTZ(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CTZ Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1304,7 +1304,7 @@ def run_test_CTZ(dut):
 @cocotb.test()
 def run_test_PCNT(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for PCNT Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1363,7 +1363,7 @@ def run_test_PCNT(dut):
 @cocotb.test()
 def run_test_SEXTB(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SEXTB Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1421,7 +1421,7 @@ def run_test_SEXTB(dut):
 @cocotb.test()
 def run_test_SEXTH(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SEXTH Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1480,7 +1480,7 @@ def run_test_SEXTH(dut):
 @cocotb.test()
 def run_test_CRC32B(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32B Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1537,7 +1537,7 @@ def run_test_CRC32B(dut):
 @cocotb.test()
 def run_test_CRC32H(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32H Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1595,7 +1595,7 @@ def run_test_CRC32H(dut):
 @cocotb.test()
 def run_test_CRC32W(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32W Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1653,7 +1653,7 @@ def run_test_CRC32W(dut):
 @cocotb.test()
 def run_test_CRC32CB(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32CB Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1711,7 +1711,7 @@ def run_test_CRC32CB(dut):
 @cocotb.test()
 def run_test_CRC32CH(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32CH Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1769,7 +1769,7 @@ def run_test_CRC32CH(dut):
 @cocotb.test()
 def run_test_CRC32CW(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CRC32CW Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1827,7 +1827,7 @@ def run_test_CRC32CW(dut):
 @cocotb.test()
 def run_test_CLMUL(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CLMUL Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1883,7 +1883,7 @@ def run_test_CLMUL(dut):
 @cocotb.test()
 def run_test_CLMULH(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CLMULH Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1939,7 +1939,7 @@ def run_test_CLMULH(dut):
 @cocotb.test()
 def run_test_CLMULR(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for CLMULR Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -1995,7 +1995,7 @@ def run_test_CLMULR(dut):
 @cocotb.test()
 def run_test_MIN(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for MIN Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2051,7 +2051,7 @@ def run_test_MIN(dut):
 @cocotb.test()
 def run_test_MAX(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for MAX Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2107,7 +2107,7 @@ def run_test_MAX(dut):
 @cocotb.test()
 def run_test_MINU(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for MINU Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2163,7 +2163,7 @@ def run_test_MINU(dut):
 @cocotb.test()
 def run_test_MAXU(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for MAXU Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2219,7 +2219,7 @@ def run_test_MAXU(dut):
 @cocotb.test()
 def run_test_BDEP(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for BDEP Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2274,7 +2274,7 @@ def run_test_BDEP(dut):
 @cocotb.test()
 def run_test_BEXT(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for BEXT Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2330,7 +2330,7 @@ def run_test_BEXT(dut):
 @cocotb.test()
 def run_test_PACK(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for PACK Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2386,7 +2386,7 @@ def run_test_PACK(dut):
 @cocotb.test()
 def run_test_PACKU(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for PACKU Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2443,7 +2443,7 @@ def run_test_PACKU(dut):
 @cocotb.test()
 def run_test_PACKH(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for PACKH Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2500,7 +2500,7 @@ def run_test_PACKH(dut):
 @cocotb.test()
 def run_test_SLOI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SLOI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2556,7 +2556,7 @@ def run_test_SLOI(dut):
 @cocotb.test()
 def run_test_SROI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SROI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2615,7 +2615,7 @@ def run_test_SROI(dut):
 @cocotb.test()
 def run_test_RORI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for RORI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2672,7 +2672,7 @@ def run_test_RORI(dut):
 @cocotb.test()
 def run_test_SBCLRI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBCLRI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2728,7 +2728,7 @@ def run_test_SBCLRI(dut):
 @cocotb.test()
 def run_test_SBSETI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBSETI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2784,7 +2784,7 @@ def run_test_SBSETI(dut):
 @cocotb.test()
 def run_test_SBINVI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBINVI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2840,7 +2840,7 @@ def run_test_SBINVI(dut):
 @cocotb.test()
 def run_test_SBEXTI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SBEXTI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2896,7 +2896,7 @@ def run_test_SBEXTI(dut):
 @cocotb.test()
 def run_test_SHFL(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SHFL Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -2952,7 +2952,7 @@ def run_test_SHFL(dut):
 @cocotb.test()
 def run_test_UNSHFL(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for UNSHFL Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3008,7 +3008,7 @@ def run_test_UNSHFL(dut):
 @cocotb.test()
 def run_test_SHFLI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for SHFLI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3064,7 +3064,7 @@ def run_test_SHFLI(dut):
 @cocotb.test()
 def run_test_UNSHFLI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for UNSHFLI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3120,7 +3120,7 @@ def run_test_UNSHFLI(dut):
 @cocotb.test()
 def run_test_GORCI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for GORCI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3178,7 +3178,7 @@ def run_test_GORCI(dut):
 @cocotb.test()
 def run_test_GREVI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for GREVI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3236,7 +3236,7 @@ def run_test_GREVI(dut):
 @cocotb.test()
 def run_test_FSRI(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for FSRI Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
@@ -3292,7 +3292,7 @@ def run_test_FSRI(dut):
 @cocotb.test()
 def run_test_BFP(dut):
 
-    dut._log.info(f'Running test for ADD Instruction')
+    dut._log.info(f'Running test for BFP Instruction')
 
     # clock
     cocotb.fork(clock_gen(dut.CLK))
