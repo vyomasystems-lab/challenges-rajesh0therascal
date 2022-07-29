@@ -33,7 +33,7 @@ Challenge here is to construct instuction register according to the instruction 
 Instruction is constructed using below code
 
 This is example test case for testing ROR instruction.
- 
+
 ```
     desOp = list('0110011')
     desFunc3 = list('101')
@@ -48,103 +48,36 @@ This is example test case for testing ROR instruction.
     mav_putvalue_instr = int(inst,2)
 ```
 
+Instruction Generations 
+
+![Alt text](../assets/Level2InstructionGeneration.png)
+
 ## Test Scenarios **(Important)**
 
-4 Test cases are devised namely,
-- test_seq_op_same_cycle to test *Output seq_seen should appear in next clock cycle*
-- test_seq_all_bruteforc to test *All possible sequences which are 4 bit long to 8 bit long for single overlap with non sequence* to find all sequences that are not generating erroneous output
-- test_seq_for_error_SEQ_1 *Using error sequences in test case 2 expose bugs in SEQ_1 state*
-- test_seq_for_error_SEQ_101 *Using error sequences in test case 2 expose bugs in SEQ_101 state*
+59 test cases are exercised for testing 58 instructions. Instructions are created as mentioned in previous section. Output after running alls testcases is shown in below images
 
-Following test cases are failed in the design
 
-![Alt text](../assets/Level1Design2TestOutput.png)
+![Alt text](../assets/Level2DesignAllTest%20Output.png)
+
+![Alt text](../assets/Level2OutputContd.png)
+
 
 ## Design Bug
 
-### Test Case 1
+Following instructions are generating buggy outputs.
 
-Based on the above test input and analysing the design, we see the following
+- ANDN
+- SLO
+- SRO
+- CLZ
 
-- Output is generated in same cycle when input goes high for last bit in sequence
-
-![Alt text](../assets/SameCycleOutput.png)
-
-Reason: output *seq_seen* is not synchronous with clock *clk*
-
-### Test Case 2
-
-Expose all sequences that are failing using all possible inputs
-
-![Alt text](../assets/Level1Design2BruteForce.png)
-
-
-### Test Case 3
-
-It is evident from above sequence that, valid sequences preceded by odd number of *1's* are causing error. This due to the bug in *SEQ_1* state
-
-![Alt text](../assets/Level1Design2SEQ1Error.png)
-
-#### Buggy code 1
-
-```
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = IDLE;  // Bug is here
-        else
-          next_state = SEQ_10;
-      end
-```
-
-Similarly Test case 4 exposes bug in the state *SEQ_101*
-
-Valid sequences preceded by *10* will fail due to the following bug
-
-#### Buggy code 2
-
-```
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = IDLE; // Bug is here
-      end
-```
-
-## Design Fix
-Updating the design in case statement as follows will clear the code
-
-#### Corrected code 1
-
-```
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1;  // Bug is here
-        else
-          next_state = SEQ_10;
-      end
-```
-
-#### Corrected code 2
-
-```
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = SEQ_10; // Bug is here
-      end
-```
+Unable to fix bugs as actual source is written in Bluespec System Verilog and converted to Verilog. 
 
 ## Verification Strategy
 
-To exercise all possible conditions using brute force and identify sequences causing errors. Then expose bugs using directed test cases.
+To exercise all possible instructions using brute force and identify instructions causing errors.
 
 ## Is the verification complete ?
 
-Yes, it is complete as far as bugs are concerned. But possible input conditions are limited to 8 bit.
+Yes, it is complete as far as bugs are concerned. But all possible input conditions are not exercised.
 
