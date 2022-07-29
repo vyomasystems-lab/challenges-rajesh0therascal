@@ -8,18 +8,22 @@ Gitpod ID is in the below image
 
 ## Verification Environment
 
- The test drives inputs to the Design Under Test Multiplexer which takes in 5-bit select input *sel* and channel inputs *inp0 : inp 30* gives 2-bit output *out*
+ The test setup drives inputs to the Design Under Test Multiplexer which takes in 
+ - 5-bit select input *sel* 
+ - 2 bit channel inputs *inp0 : inp30* 
+ 
+ and generates 2-bit output *out*
 
-The values are assigned to the input port using 
+The values are assigned to the input port using following 
 ```
         dut.inp0.value = inputValue
         dut.sel.value = 0
 ```
 for the test case *test_mux_inp0*
 
-The assert statement is used for comparing the multiplexers's outut to the expected value.
+The assert statement is used for comparing the multiplexers's output with the expected value.
 
-The following error is seen:
+An error is seen when input value is not equal to output value:
 ```
 assert dut.out.value == inputValue, "Test failed with: {input} {sel} = {output}".format(input=inputValue, sel=dut.sel.value, output = dut.out.value)
 
@@ -28,11 +32,11 @@ assert dut.out.value == inputValue, "Test failed with: {input} {sel} = {output}"
 
 A total of 31 test cases are build.
 
-Each test cases simulates all possible inputs for a particular select channel i.e. 00,01,10 and 11
+Each test case simulates all possible inputs for a particular select channel i.e. 00,01,10 and 11
 
 ## Design Bug
 
-Based on the above test inputs and analysing the design, we see the following
+Based on the above test inputs and analysing the design, we see the following output in the terminal.
 
 ![Alt text](../assets/Level1Design1AllTests.png)
 
@@ -98,5 +102,5 @@ To exercise all *sel* inputs and drive all possible inputs on selected inputs.
 
 ## Is the verification complete ?
 
-Yes, it is complete as far as bugs are concerned. But all possible input conditions are not exercised
+Yes, it is complete as far as bugs are concerned. But all possible input conditions are not exercised.
 

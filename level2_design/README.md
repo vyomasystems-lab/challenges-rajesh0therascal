@@ -26,18 +26,18 @@ The following lines are used to drive inputs
     dut.EN_mav_putvalue.value = 1
     dut.mav_putvalue_instr.value = mav_putvalue_instr
 ```
-Here, *inputs* is hexadecimal inputs. 
+Here, *inputs* are hexadecimal. 
 
-Challenge here is to construct instuction register according to the instruction under test.
+Challenge here is to construct instuction register *mav_putvalue_instr* according to the instruction under test.
 
 Instruction is constructed using below code
 
 This is example test case for testing ROR instruction.
 
 ```
-    desOp = list('0110011')
-    desFunc3 = list('101')
-    desFunc7 = list('0110000')
+    desOp = list('0110011')             # Desired OpCode
+    desFunc3 = list('101')              # Desired Func 3
+    desFunc7 = list('0110000')          # Desired Func 7
     inst = bin(0)[2:0]
     inst = inst.zfill(32)
     instList = list(inst)
@@ -48,7 +48,7 @@ This is example test case for testing ROR instruction.
     mav_putvalue_instr = int(inst,2)
 ```
 
-Instruction Generations 
+Instruction Generation is shown below
 
 ![Alt text](../assets/Level2InstructionGeneration.png)
 
@@ -75,7 +75,7 @@ Unable to fix bugs as actual source is written in Bluespec System Verilog and co
 
 ## Verification Strategy
 
-To exercise all possible instructions using brute force and identify instructions causing errors.
+To exercise all possible instructions and identify instructions causing errors.
 
 ## Is the verification complete ?
 
