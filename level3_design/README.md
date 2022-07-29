@@ -42,6 +42,18 @@ The structural heirarchy is shown below
 ## Test Scenarios **(Important)**
 
 Test scenarios are constructed using top down methodology. Following test cases are constructed
+
+- VedicMult basic test
+- VedicMult randomised test
+- Ripple adder test 8 bit
+- Ripple adder test 12 bit
+- Vedic mult 4x4 test
+- Vedic mult 2x2 test
+- Pinpoint test
+
+Following test cases are run heirarchially to identify bug.
+
+
 ## Design Bug
 
 ### Test Case 1
