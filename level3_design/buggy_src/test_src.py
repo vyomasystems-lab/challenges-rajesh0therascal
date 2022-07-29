@@ -147,10 +147,6 @@ async def vedicMult_rippleAdder2x2PinPointTest(dut):
         if (A1B1 != int(dut.VD0.VD0.a1b1.value)):
             dut._log.info(f'A1B1 value failed A1B1 model output is {A1B1} Actual output is {int(dut.VD0.VD0.a1b1.value)} ')
             failCount = failCount + 1
-
-
-
-
         
         dut._log.info(f'A={A:05} B={B:05} model={A+B:05} DUT={int(dut.prod.value):05}')
         dut._log.info(f'Ripple Adder 8 bit output is  {int(dut.sum0.value)}')
