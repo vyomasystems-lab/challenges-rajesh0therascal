@@ -1,4 +1,4 @@
-# Sequence Detector Verification
+# Vedic Multiplier Verification
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
@@ -100,13 +100,13 @@ Status : *Failed*
 
 ### Test Case 6
 
-Randomised tests to check functionality of 4x4 vedic multiplier.
+Randomised tests to check functionality of 2x2 vedic multiplier.
 
 Status : *Failed*
 
 ### Test Case 7
 
-Randomised tests to check functionality of 2x2 vedic multiplier.
+Randomised tests to check pin point errors in 2x2 vedic multiplier.
 
 Status : *Failed*
 
